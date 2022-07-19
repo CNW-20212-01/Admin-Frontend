@@ -1,0 +1,273 @@
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font: normal normal normal 1rem/1.6 -apple-system, BlinkMacSystemFont,
+    Helvetica Neue, Helvetica, Arial, sans-serif;
+  font-size: 1rem;
+}
+
+body {
+  color: #404040;
+  background: white;
+  font-size: 1rem;
+}
+
+.container,
+.small-container {
+  max-width: 1200px;
+  padding: 0 1rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.small-container {
+  max-width: 800px;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.button,
+a.button,
+button,
+[type='submit'],
+[type='reset'],
+[type='button'] {
+  -webkit-appearance: none;
+  display: inline-block;
+  border: 1px solid #0366ee;
+  border-radius: 4px;
+  background: #0366ee;
+  color: #ffffff;
+  font-weight: 600;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, Helvetica,
+    Arial, sans-serif;
+  font-size: 1rem;
+  text-transform: none;
+  padding: 0.75rem 1.25rem;
+  margin: 0 0 0.5rem 0;
+  vertical-align: middle;
+  text-align: center;
+  cursor: pointer;
+  text-decoration: none;
+  line-height: 1;
+}
+
+.button:hover,
+a.button:hover,
+button:hover,
+[type='submit']:hover,
+[type='reset']:hover,
+[type='button']:hover {
+  border: 1px solid #0250bc;
+  background: #0250bc;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.button:focus,
+.button:active,
+a.button:focus,
+a.button:active,
+button:focus,
+button:active,
+[type='submit']:focus,
+[type='submit']:active,
+[type='reset']:focus,
+[type='reset']:active,
+[type='button']:focus,
+[type='button']:active {
+  border: 1px solid #0250bc;
+  background: #0250bc;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.muted-button,
+a.muted-button {
+  background: transparent;
+  border: 1px solid #cdcdcd;
+  color: #4e4e4e;
+}
+
+.muted-button:hover,
+.muted-button:focus,
+.muted-button:active,
+a.muted-button:hover,
+a.muted-button:focus,
+a.muted-button:active {
+  color: #4e4e4e;
+  border: 1px solid #818181;
+  background: transparent;
+}
+
+[type='color'],
+[type='date'],
+[type='datetime'],
+[type='datetime-local'],
+[type='email'],
+[type='month'],
+[type='number'],
+[type='password'],
+[type='search'],
+[type='tel'],
+[type='text'],
+[type='url'],
+[type='week'],
+[type='time'],
+select,
+textarea {
+  display: block;
+  border: 1px solid #dedede;
+  border-radius: 4px;
+  padding: 0.75rem;
+  outline: none;
+  background: transparent;
+  margin-bottom: 0.5rem;
+  font-size: 1rem;
+  width: 100%;
+  max-width: 100%;
+  line-height: 1;
+}
+
+[type='color']:hover,
+[type='date']:hover,
+[type='datetime']:hover,
+[type='datetime-local']:hover,
+[type='email']:hover,
+[type='month']:hover,
+[type='number']:hover,
+[type='password']:hover,
+[type='search']:hover,
+[type='tel']:hover,
+[type='text']:hover,
+[type='url']:hover,
+[type='week']:hover,
+[type='time']:hover,
+select:hover,
+textarea:hover {
+  border: 1px solid #c5c5c5;
+}
+
+[type='color']:focus,
+[type='color']:active,
+[type='date']:focus,
+[type='date']:active,
+[type='datetime']:focus,
+[type='datetime']:active,
+[type='datetime-local']:focus,
+[type='datetime-local']:active,
+[type='email']:focus,
+[type='email']:active,
+[type='month']:focus,
+[type='month']:active,
+[type='number']:focus,
+[type='number']:active,
+[type='password']:focus,
+[type='password']:active,
+[type='search']:focus,
+[type='search']:active,
+[type='tel']:focus,
+[type='tel']:active,
+[type='text']:focus,
+[type='text']:active,
+[type='url']:focus,
+[type='url']:active,
+[type='week']:focus,
+[type='week']:active,
+[type='time']:focus,
+[type='time']:active,
+select:focus,
+select:active,
+textarea:focus,
+textarea:active {
+  border: 1px solid #0366ee;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #8cbcfe;
+}
+
+label {
+  font-weight: 600;
+  max-width: 100%;
+  display: block;
+  margin: 1rem 0 0.5rem;
+}
+
+input.has-error,
+input.has-error:hover,
+input.has-error:focus,
+input.has-error:active,
+select.has-error,
+select.has-error:hover,
+select.has-error:focus,
+select.has-error:active,
+textarea.has-error,
+textarea.has-error:hover,
+textarea.has-error:focus,
+textarea.has-error:active {
+  border: 1px solid #d33c40;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #f4cecf;
+}
+
+input.is-success,
+input.is-success:hover,
+input.is-success:focus,
+input.is-success:active,
+select.is-success,
+select.is-success:hover,
+select.is-success:focus,
+select.is-success:active,
+textarea.is-success,
+textarea.is-success:hover,
+textarea.is-success:focus,
+textarea.is-success:active {
+  border: 1px solid #29de7d;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.1), 0 0 6px #97efc0;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  max-width: 100%;
+}
+
+thead th {
+  border-bottom: 2px solid #dedede;
+}
+
+tfoot th {
+  border-top: 2px solid #dedede;
+}
+
+td {
+  border-bottom: 1px solid #dedede;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 0.5rem;
+}
+
+caption {
+  padding: 1rem 0;
+  caption-side: bottom;
+  color: #ababab;
+}
+
+.striped-table tbody tr:nth-child(odd) {
+  background-color: #f8f8f8;
+}
+
+.contain-table {
+  overflow-x: auto;
+}

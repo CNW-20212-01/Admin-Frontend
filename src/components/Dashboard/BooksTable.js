@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Table = ({ books, handleEdit, handleDelete }) => {
+const BooksTable = ({ books, handleEdit, handleDelete }) => {
   const formatter = new Intl.NumberFormat('en-US', {
     style: 'currency',
     currency: 'USD',
@@ -79,4 +79,4 @@ const Table = ({ books, handleEdit, handleDelete }) => {
   );
 };
 
-export default Table;
+export default BooksTable;

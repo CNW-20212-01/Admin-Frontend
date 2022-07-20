@@ -1,24 +1,28 @@
 import React, { useState, useEffect } from 'react';
 
 import Header from './Header';
-import Table from './Table';
+import BooksTable from './BooksTable';
+import BillsTable from './BillsTable';
 import Add from './Add';
 import Edit from './Edit';
 
 //import { booksData } from '../../data';
 
 const API_BOOKS_ENDPOINT = process.env.REACT_APP_API_BOOKS_ENDPOINT;
+const API_BILLS_ENDPOINT = process.env.REACT_APP_API_BILLS_ENDPOINT;
 const API_DELETE_BOOK_ENDPOINT = process.env.REACT_APP_API_DELETE_BOOK_ENDPOINT;
 
 const Dashboard = ({ setIsAuthenticated }) => {
   //const [books, setBooks] = useState(booksData);
-  const [books, setBooks] = useState(null);
+  const [books, setBooks] = useState([]);
+  const [bills, setBills] = useState([]);
   const [selectedBook, setSelectedBook] = useState(null);
   const [isAdding, setIsAdding] = useState(false);
   const [isEditing, setIsEditing] = useState(false);
-  const [isLoading, setIsLoading] = useState(true);
+  const [isBooksLoading, setIsBooksLoading] = useState(true);
+  const [isBillsLoading, setIsBillsLoading] = useState(true);
 
-  const fetchTableData = async () => {
+  const fetchBooksTableData = async () => {
     await fetch(API_BOOKS_ENDPOINT, {
       method: "GET",
       headers: {
@@ -40,13 +44,38 @@ const Dashboard = ({ setIsAuthenticated }) => {
         intro: item.intro,
         image: item.image
       })));
-      setIsLoading(false);
+
+      setIsBooksLoading(false);
+    })
+    .catch(error => alert(error));
+  }
+
+  const fetchBillsTableData = async () => {
+    await fetch(API_BILLS_ENDPOINT, {
+      method: "GET",
+      headers: {
+        Authorization: "Bearer " + localStorage.getItem("bearer_token")
+      }
+    })
+    .then(res => res.json())
+    .then(data => {
+      setBills(data.map(item => ({
+        bill_id: item.bill_id,
+        date_bill: item.date_bill,
+        phone_number: item.phone_number,
+        name: item.name,
+        total_money: item.total_money,
+        address: item.address
+      })));
+
+      setIsBillsLoading(false);
     })
     .catch(error => alert(error));
   }
 
   useEffect(() => {
-    fetchTableData();
+    fetchBooksTableData();
+    fetchBillsTableData();
   }, []);
 
   const handleEdit = id => {
@@ -78,27 +107,33 @@ const Dashboard = ({ setIsAuthenticated }) => {
 
   return (
     <div className="container">
-      {!isAdding && !isEditing && !isLoading && (
+      {!isAdding && !isEditing && (
         <>
-          <Header
-            setIsAdding={setIsAdding}
-            setIsAuthenticated={setIsAuthenticated}
-          />
-          <Table
+          <Header setIsAuthenticated={setIsAuthenticated} />
+          <h2>I. Table Of Books:</h2>
+          <div style={{ marginTop: '30px', marginBottom: '18px' }}>
+            <button onClick={() => setIsAdding(true)}>Add New Book</button>
+          </div>
+          {!isBooksLoading && <BooksTable
             books={books}
             handleEdit={handleEdit}
             handleDelete={handleDelete}
-          />
+          />}
+          <hr style={{marginTop: 30}}></hr>
+          <h2>II. Table Of Bills:</h2>
+          {!isBillsLoading && <BillsTable
+            bills={bills}
+          />}
         </>
       )}
-      {isAdding && !isLoading && (
+      {isAdding && !isBooksLoading && (
         <Add
           books={books}
           setBooks={setBooks}
           setIsAdding={setIsAdding}
         />
       )}
-      {isEditing && !isLoading && (
+      {isEditing && !isBooksLoading && (
         <Edit
           books={books}
           selectedBook={selectedBook}

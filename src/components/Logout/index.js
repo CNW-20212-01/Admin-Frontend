@@ -4,6 +4,7 @@ const Logout = ({ setIsAuthenticated }) => {
   const handleLogout = () => {
     localStorage.setItem('is_authenticated', false);
     setIsAuthenticated(false);
+    alert("Logout successfully!");
   };
 
   return (

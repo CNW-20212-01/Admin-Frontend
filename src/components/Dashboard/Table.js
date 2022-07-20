@@ -7,6 +7,13 @@ const Table = ({ books, handleEdit, handleDelete }) => {
     minimumFractionDigits: null,
   });
 
+  const shortForm = (intro) => {
+    const numChar = 20;
+    
+    if (intro.length <= numChar) return intro;
+    return intro.substr(0, numChar - 1) + "...";
+  }
+
   return (
     <div className="contain-table">
       <table className="striped-table">
@@ -33,16 +40,16 @@ const Table = ({ books, handleEdit, handleDelete }) => {
             books.map((book, i) => (
               <tr key={book.book_id}>
                 <td>{i + 1}</td>
-                <td>{book.book_name}</td>
-                <td>{book.genre}</td>
-                <td>{book.author_name}</td>
+                <td>{shortForm(book.book_name)}</td>
+                <td>{shortForm(book.genre)}</td>
+                <td>{shortForm(book.author_name)}</td>
                 <td>{formatter.format(book.price)}</td>
                 <td>{book.pages}</td>
-                <td>{book.publisher}</td>
+                <td>{shortForm(book.publisher)}</td>
                 <td>{book.publishing_year}</td>
                 <td>{book.purchased}</td>
-                <td>{book.intro}</td>
-                <td>{book.image}</td>
+                <td>{shortForm(book.intro)}</td>
+                <td>{shortForm(book.image)}</td>
                 <td className="text-right">
                   <button
                     onClick={() => handleEdit(book.book_id)}

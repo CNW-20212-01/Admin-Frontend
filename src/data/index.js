@@ -1,7 +1,7 @@
 const booksData = [
   {
     book_id: "429e662d-2646-470d-b580-8372500e8d83",
-    Book_name: "test1",
+    book_name: "test1",
     genre: "asdf",
     author_name: "asdf",
     price: 5000,

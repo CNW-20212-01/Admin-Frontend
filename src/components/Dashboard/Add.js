@@ -137,7 +137,7 @@ const Add = ({ books, setBooks, setIsAdding }) => {
           onChange={e => setImage(e.target.value)} 
         />
         <div style={{ marginTop: '30px' }}>
-          <input type="submit" value="Update" />
+          <input type="submit" value="Add" />
           <input
             style={{ marginLeft: '12px' }}
             className="muted-button"

@@ -27,7 +27,19 @@ const Dashboard = ({ setIsAuthenticated }) => {
     })
     .then(res => res.json())
     .then(data => {
-      setBooks(data);
+      setBooks(data.map(item => ({
+        book_id: item.book_id,
+        book_name: item.Book_name,
+        genre: item.genre,
+        author_name: item.author_name,
+        price: item.price,
+        pages: item.pages,
+        publisher: item.publisher,
+        publishing_year: item.publishing_year,
+        purchased: item.purchased,
+        intro: item.intro,
+        image: item.image
+      })));
       setIsLoading(false);
     })
     .catch(error => alert(error));

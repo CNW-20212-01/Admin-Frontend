@@ -44,7 +44,6 @@ const Add = ({ books, setBooks, setIsAdding }) => {
         Authorization: "Bearer " + localStorage.getItem("bearer_token")
       }
     })
-    .then(res => alert(res.status))
     .catch(error => alert(error));
 
     setBooks(books);

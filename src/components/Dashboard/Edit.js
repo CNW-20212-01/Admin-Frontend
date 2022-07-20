@@ -5,7 +5,7 @@ const API_EDIT_BOOK_ENDPOINT = process.env.REACT_APP_API_EDIT_BOOK_ENDPOINT;
 const Edit = ({ books, selectedBook, setBooks, setIsEditing }) => {
   const id = selectedBook.book_id;
 
-  const [bookName, setBookName] = useState(selectedBook.Book_name);
+  const [bookName, setBookName] = useState(selectedBook.book_name);
   const [genre, setGenre] = useState(selectedBook.genre);
   const [authorName, setAuthorName] = useState(selectedBook.author_name);
   const [price, setPrice] = useState(selectedBook.price);
@@ -26,7 +26,7 @@ const Edit = ({ books, selectedBook, setBooks, setIsEditing }) => {
 
     const book = {
       book_id: id,
-      Book_name: bookName,
+      book_name: bookName,
       genre: genre,
       author_name: authorName,
       price: price,

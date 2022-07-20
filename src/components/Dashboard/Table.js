@@ -33,7 +33,7 @@ const Table = ({ books, handleEdit, handleDelete }) => {
             books.map((book, i) => (
               <tr key={book.book_id}>
                 <td>{i + 1}</td>
-                <td>{book.Book_name}</td>
+                <td>{book.book_name}</td>
                 <td>{book.genre}</td>
                 <td>{book.author_name}</td>
                 <td>{formatter.format(book.price)}</td>
@@ -63,7 +63,7 @@ const Table = ({ books, handleEdit, handleDelete }) => {
             ))
           ) : (
             <tr>
-              <td colSpan={7}>No Book</td>
+              <td colSpan={12}>No Book Existed</td>
             </tr>
           )}
         </tbody>
